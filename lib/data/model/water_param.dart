@@ -12,6 +12,7 @@ class WaterParam extends Equatable {
   final String soundCatStart;
   @JsonKey(name: 'signal-go')
   final String signalGo;
+  @JsonKey(name: 'noise-threshold')
   final int noiceThreshold;
 
   const WaterParam({
@@ -21,6 +22,22 @@ class WaterParam extends Equatable {
     required this.signalGo,
     required this.noiceThreshold,
   });
+
+  WaterParam copyWith({
+    String? header,
+    String? signalMarkBase,
+    String? soundCatStart,
+    String? signalGo,
+    int? noiceThreshold,
+  }) {
+    return WaterParam(
+      header: header ?? this.header,
+      signalMarkBase: signalMarkBase ?? this.signalMarkBase,
+      soundCatStart: soundCatStart ?? this.soundCatStart,
+      signalGo: signalGo ?? this.signalGo,
+      noiceThreshold: noiceThreshold ?? this.noiceThreshold,
+    );
+  }
 
   @override
   List<Object?> get props =>

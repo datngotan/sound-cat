@@ -11,7 +11,7 @@ WaterParam _$WaterParamFromJson(Map<String, dynamic> json) => WaterParam(
       signalMarkBase: json['signal-mark-base'] as String,
       soundCatStart: json['sound-cat-start'] as String,
       signalGo: json['signal-go'] as String,
-      noiceThreshold: json['noiceThreshold'] as int,
+      noiceThreshold: json['noise-threshold'] as int,
     );
 
 Map<String, dynamic> _$WaterParamToJson(WaterParam instance) =>
@@ -20,5 +20,5 @@ Map<String, dynamic> _$WaterParamToJson(WaterParam instance) =>
       'signal-mark-base': instance.signalMarkBase,
       'sound-cat-start': instance.soundCatStart,
       'signal-go': instance.signalGo,
-      'noiceThreshold': instance.noiceThreshold,
+      'noise-threshold': instance.noiceThreshold,
     };

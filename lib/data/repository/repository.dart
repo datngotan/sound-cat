@@ -1,4 +1,3 @@
-
 import 'package:dio/dio.dart';
 
 import '../model/race_detail.dart';
@@ -23,7 +22,7 @@ class Repository {
       return null;
     }
   }
-  
+
   static Future<RaceDetails?> getRaceDetail(String url) async {
     try {
       final response = await Dio(BaseOptions(baseUrl: url)).get('');
@@ -39,7 +38,7 @@ class Repository {
     }
   }
 
-  static Future<String?> get(String url) async {
+  static Future<String?> notify(String url) async {
     try {
       final response = await Dio(BaseOptions(baseUrl: url)).get('');
       if (response.statusCode == 200) {
@@ -50,6 +49,15 @@ class Repository {
       }
     } catch (e) {
       return null;
+    }
+  }
+
+  static Future<bool> checkSuccessCode(String url) async {
+    try {
+      final response = await Dio(BaseOptions(baseUrl: url)).get('');
+      return response.statusCode == 200;
+    } catch (e) {
+      return false;
     }
   }
 
